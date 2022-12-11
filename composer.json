@@ -1,0 +1,12 @@
+{
+    "name": "web/library",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/app"
+        },
+        "files": [
+            "src/app/core/helpers/helper.php"
+        ]
+    },
+    "require": {}
+}

@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  nginx:
+    container_name: nginx
+    build: ./docker/nginx
+    command: nginx -g "daemon off;"
+    links:
+      - php
+    ports:
+      - "12000:80"
+    volumes:
+      - .:/var/www/html
+    networks:
+      - library
+  php:
+    container_name: php
+    build: ./docker/php
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - library
+
+  db:
+    image: mysql
+    container_name: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=library
+    networks:
+      - library
+
+networks:
+  library:
+    driver: bridge
