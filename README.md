@@ -1,4 +1,4 @@
-Hướng dẫn cài đặt:
+# Hướng dẫn cài đặt:
 
 B1: Tải Laragon https://laragon.org/
 
@@ -29,3 +29,24 @@ alias "C:/laragon/www/web_library/src/public/assets";
 }
 
 B10: Restart lại Laragon, sau đó truy cập trang web_library.test -> Done
+
+
+
+## MySQL: 
+B1: Download https://tableplus.com/
+
+B2: Mở table plus lên, chuột phải vào chọn New -> Mysql
+
+B3: Điền thông tin
+
+Name: localhost
+
+Host: localhost
+
+Port: 3306
+
+User: root
+
+Password: 
+
+B4: Bấm test để thử connect, nêu OK chọn connect -> sử dụng tableplus để tương tác với database
